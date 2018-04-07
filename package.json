@@ -1,0 +1,21 @@
+{
+  "name": "music",
+  "version": "1.0.0",
+  "description": "",
+  "main": "RiverFlowsInYou/midgen.js",
+  "dependencies": {
+    "midifile": "^1.0.4",
+    "midiplayer": "^1.0.0",
+    "scribbletune": "^0.11.2",
+    "web-midi-api": "^1.4.4"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.5"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}
