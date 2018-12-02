@@ -32,8 +32,8 @@ require('./line3.js').init(tracks).addLine();
 // require('./line8.js').init(tracks).addLine();
 
 file.addTrack(rightHand);
-// file.addTrack(leftHand);
-// file.addTrack(thirdVoice);
+file.addTrack(leftHand);
+file.addTrack(thirdVoice);
 file.addTrack(metronome);
 
 fs.writeFileSync('test.mid', file.toBytes(), 'binary');
