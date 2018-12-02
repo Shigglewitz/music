@@ -10,22 +10,26 @@ describe('noteCreator', function() {
         };
 
         let actual = noteCreator.interpret(0, 'c4', 32);
+        actual.notes.forEach(function(note) {
+            delete note.toMidi;
+        });
 
         expect(actual).to.deep.equal(expected);
     });
 
     it('should find notes', function() {
         let cases = [
-            { input: 'c4', output: {note:'c', octave:4}},
-            { input: 'd4', output: {note:'d', octave:4}},
-            { input: 'e5', output: {note:'e', octave:5}},
-            { input: 'f#6', output: {note:'f#', octave:6}},
+            { input: 'c4', output: {note:'c', octave:4, midi: 'c4'}},
+            { input: 'd4', output: {note:'d', octave:4, midi: 'd4'}},
+            { input: 'e5', output: {note:'e', octave:5, midi: 'e5'}},
+            { input: 'f#6', output: {note:'f#', octave:6, midi: 'f#6'}},
         ]
         function executeTest(testCase) {
             let actual = noteCreator.interpret(0, testCase.input, 32);
             expect(actual.notes.length).to.be.equal(1);
             expect(actual.notes[0].note).to.be.equal(testCase.output.note);
             expect(actual.notes[0].octave).to.be.equal(testCase.output.octave);
+            expect(actual.notes[0].toMidi()).to.be.equal(testCase.output.midi);
         };
         cases.forEach(executeTest);
     });

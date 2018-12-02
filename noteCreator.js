@@ -11,11 +11,16 @@ function interpret(channel, note, duration) {
     }
 }
 
-function parse(note) {
-    let firstNumber = note.search('[0-9]')
+function parse(input) {
+    let firstNumber = input.search('[0-9]')
+    let parsedNote = input.substring(0,firstNumber); 
+    let parsedOctave = parseInt(input.substring(firstNumber,input.length)); 
     return {
-        note: note.substring(0,firstNumber),
-        octave: parseInt(note.substring(firstNumber,note.length))
+        note: parsedNote,
+        octave: parsedOctave,
+        toMidi: function() {
+            return this.note + this.octave;
+        }
     }
 }
 

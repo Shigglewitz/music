@@ -2,7 +2,7 @@
   "name": "music",
   "version": "1.0.0",
   "description": "",
-  "main": "RiverFlowsInYou/midgen.js",
+  "main": "songCreator.js",
   "dependencies": {
     "midifile": "^1.0.4",
     "midiplayer": "^1.0.0",
